@@ -55,9 +55,9 @@ npx serve .
 
 ---
 
-## 3. Trocar o domínio
+## 3. URL oficial
 
-O endereço `https://www.condominioaspen.com.br/` é um marcador. Substitua-o
+O endereço oficial é `https://condominio-residencial-aspen.vercel.app/` e está configurado
 em quatro lugares:
 
 - `index.html` — nas tags `canonical`, Open Graph, Twitter e no bloco

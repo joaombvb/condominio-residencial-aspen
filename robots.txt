@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.condominioaspen.com.br/sitemap.xml
+Sitemap: https://condominio-residencial-aspen.vercel.app/sitemap.xml
