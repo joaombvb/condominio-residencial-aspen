@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Condomínio Residencial Aspen | São Luís - MA</title>
-<meta name="description" content="Informações institucionais, contato, endereço e administração do Condomínio Residencial Aspen, localizado no bairro Renascença, em São Luís - MA.">
+<title>Condomínio Residencial Aspen | São Luís/MA</title>
+<meta name="description" content="Informações institucionais, contato, endereço e administração do Condomínio Residencial Aspen, localizado no bairro Renascença, em São Luís/MA.">
 <link rel="canonical" href="https://condominio-residencial-aspen.vercel.app/">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Condomínio Residencial Aspen">
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Condomínio Residencial Aspen">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Condomínio Residencial Aspen | São Luís - MA">
-<meta property="og:description" content="Informações institucionais, contato, endereço e administração do Condomínio Residencial Aspen, no bairro Renascença, em São Luís - MA.">
+<meta property="og:title" content="Condomínio Residencial Aspen | São Luís/MA">
+<meta property="og:description" content="Informações institucionais, contato, endereço e administração do Condomínio Residencial Aspen, no bairro Renascença, em São Luís/MA.">
 <meta property="og:url" content="https://condominio-residencial-aspen.vercel.app/">
 <meta property="og:image" content="https://condominio-residencial-aspen.vercel.app/assets/og-aspen.png">
 <meta property="og:image:width" content="1200">
@@ -31,7 +31,7 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Condomínio Residencial Aspen | São Luís - MA">
+<meta name="twitter:title" content="Condomínio Residencial Aspen | São Luís/MA">
 <meta name="twitter:description" content="Informações institucionais, contato, endereço e administração do Condomínio Residencial Aspen.">
 <meta name="twitter:image" content="https://condominio-residencial-aspen.vercel.app/assets/og-aspen.png">
 
@@ -191,10 +191,10 @@ ul{margin:0;padding:0;list-style:none}
   background-size:cover;
   background-position:center 38%;
 }
-html.has-photo .hero__media{
+html.has-hero-photo .hero__media{
   background-image:
     linear-gradient(180deg,rgba(23,60,50,0) 30%,rgba(23,60,50,.06) 100%),
-    var(--photo);
+    var(--photo-header);
   background-size:cover;
   background-position:center 42%;
 }
@@ -375,15 +375,37 @@ a.card:active,button.card:active{transform:scale(.98);box-shadow:var(--sh-1)}
   overflow-wrap:break-word;
   font-variant-numeric:tabular-nums;
 }
-.card__value--sm{font-size:13.5px;font-weight:500;letter-spacing:-.01em;overflow-wrap:normal}
 .nb{white-space:nowrap}
-.c-phone .card__value{font-size:15.5px;letter-spacing:-.015em}
 .card__cta{
   position:absolute;top:16px;right:16px;
   color:var(--gold-dk);opacity:.62;
   transition:transform 220ms var(--ease),opacity 220ms var(--ease);
 }
 a.card:hover .card__cta{transform:translate(2px,-2px);opacity:1}
+
+/* - Wide contact cards - phone / e-mail, stacked full-width ------ */
+.card--wide{
+  grid-column:span 2;
+  flex-direction:row;
+  align-items:center;
+  gap:14px;
+  min-height:0;
+  padding:16px 46px 16px 16px;
+}
+.card--wide .card__text{
+  display:flex;flex-direction:column;
+  min-width:0;flex:1;
+}
+.card--wide .card__label{margin-top:0;padding-top:0}
+.card--wide .card__value{margin-top:3px}
+.card--wide .card__value--email{
+  font-weight:700;
+  font-size:15px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.c-phone .card__value{font-size:15.5px;letter-spacing:-.015em}
 
 /* - SIGNATURE: the engraved plaque ---------------------
    The building's identity is a name carved into stone. This card is the
@@ -410,27 +432,12 @@ a.card:hover .card__cta{transform:translate(2px,-2px);opacity:1}
   border:1px solid rgba(200,169,106,.20);
   pointer-events:none;
 }
-.plaque__kicker{
-  font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(230,210,164,.68);
-}
-.plaque__name{
-  font-family:var(--ff-display);
-  font-size:clamp(28px,8.6vw,40px);
-  font-weight:500;line-height:1.06;letter-spacing:.13em;
-  text-transform:uppercase;
-  margin-top:10px;
-  color:var(--gold);
-  background:linear-gradient(178deg,#F0DFB6 0%,#C8A96A 46%,#9C7F44 100%);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 1px 0 rgba(9,25,20,.75));
-}
+.plaque__mark{width:258px;margin:0 auto}
+.plaque__mark img{width:100%}
 .plaque__sub{
   font-size:10px;font-weight:500;letter-spacing:.17em;text-transform:uppercase;
-  color:rgba(232,239,235,.62);margin-top:6px;
+  color:rgba(232,239,235,.62);margin-top:14px;
 }
-.plaque__arc{width:164px;margin:15px auto 0;color:rgba(200,169,106,.85)}
 .plaque__cnpj{
   display:flex;align-items:center;gap:12px;
   width:max-content;max-width:100%;
@@ -461,6 +468,10 @@ a.card:hover .card__cta{transform:translate(2px,-2px);opacity:1}
 .copy-btn:hover{background:rgba(255,255,255,.14)}
 .copy-btn:active{transform:scale(.9)}
 .copy-btn.is-done{color:#9FD9BC;border-color:rgba(159,217,188,.45)}
+.plaque__hint{
+  font-size:9.5px;font-weight:500;letter-spacing:.04em;
+  color:rgba(232,239,235,.4);margin-top:8px;
+}
 
 /* - Address card ----------------------------------- */
 .addr{grid-column:span 2;min-height:0}
@@ -472,10 +483,10 @@ a.card:hover .card__cta{transform:translate(2px,-2px);opacity:1}
 }
 .addr__body{display:flex;gap:14px;align-items:flex-start;padding-bottom:16px}
 .addr__lines{
-  font-size:15px;line-height:1.62;color:var(--forest);font-weight:500;
+  font-size:15px;line-height:1.62;color:var(--forest);font-weight:700;
   margin-top:2px;
 }
-.addr__lines span{display:block;color:var(--muted);font-weight:400;font-size:14px}
+.addr__lines span{display:block;color:var(--muted);font-weight:700;font-size:14px}
 .addr__btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   min-height:46px;padding:0 20px;
@@ -501,6 +512,7 @@ a.card:hover .card__cta{transform:translate(2px,-2px);opacity:1}
   background:linear-gradient(150deg,#1D4A3D,#123027);
   border:1px solid rgba(200,169,106,.35);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+  object-fit:cover;
 }
 .admin__role{
   font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
@@ -508,12 +520,43 @@ a.card:hover .card__cta{transform:translate(2px,-2px);opacity:1}
 }
 .admin__name{
   font-family:var(--ff-display);
-  font-size:21px;font-weight:500;line-height:1.2;color:var(--forest);margin-top:2px;
+  font-size:21px;font-weight:700;line-height:1.2;color:var(--forest);margin-top:2px;
 }
 .admin__oab{font-size:13px;color:var(--muted);margin-top:3px;letter-spacing:.02em}
 .admin__note{
   margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
   font-size:12.5px;color:var(--muted);
+}
+.admin__board{
+  margin-top:18px;padding-top:16px;border-top:1px solid var(--line);
+}
+
+/* - Board section - subsíndico + conselho fiscal ---- */
+.council__grp{margin-top:14px}
+.council__grp:first-child{margin-top:0}
+.council__h{
+  font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-dk);
+}
+.council__grp>.council__name{
+  display:block;margin-top:4px;
+  font-family:var(--ff-display);
+  font-size:17px;font-weight:600;color:var(--forest);
+}
+.council__list{margin-top:8px;display:grid;gap:2px}
+.council__list li{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  padding:9px 0;border-top:1px solid var(--line-soft);
+}
+.council__list li:first-child{border-top:0;padding-top:6px}
+.council__list .council__name{
+  font-family:var(--ff-display);
+  font-size:15.5px;font-weight:600;color:var(--forest);
+}
+.council__role{
+  flex:none;
+  font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -785,8 +828,8 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
    16. RESPONSIVE
    ═══════════════════════════════════════════════════════════ */
 @media (min-width:640px){
-  .callout__btns{flex-direction:row;justify-content:center}
-  .btn{min-width:200px}
+  .callout__btns{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .btn{flex:1 1 190px;min-width:0;max-width:240px}
   .soon{grid-template-columns:repeat(3,minmax(0,1fr))}
   .soon__card--wide{grid-column:span 3}
   .footer__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -809,11 +852,11 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
   }
   .plaque{grid-column:1 / span 2;grid-row:1 / span 2}
   .addr     {grid-column:3 / span 2;grid-row:1 / span 2}
-  .c-phone  {grid-column:1;grid-row:3}
-  .c-mail   {grid-column:2;grid-row:3}
-  .c-share  {grid-column:1;grid-row:4}
-  .c-vcard  {grid-column:2;grid-row:4}
-  .admin    {grid-column:3 / span 2;grid-row:3 / span 2}
+  .c-phone  {grid-column:1 / span 4;grid-row:3}
+  .c-mail   {grid-column:1 / span 4;grid-row:4}
+  .c-share  {grid-column:1;grid-row:5}
+  .c-vcard  {grid-column:2;grid-row:5}
+  .admin    {grid-column:1 / span 4;grid-row:6}
   .card{padding:22px}
   .plaque{padding:32px 28px}
 
@@ -943,9 +986,13 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
     <g id="i-swipe" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12h14M13 6l6 6-6 6"/>
     </g>
+    <g id="i-whatsapp" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 21l1.4-4.8A8.5 8.5 0 1 1 8.4 19.6z"/>
+      <path d="M8.7 9.3c.2-.4.4-.4.7-.4.2 0 .5.05.65.4.2.45.55 1.3.6 1.4.1.2.1.4 0 .6-.1.2-.15.3-.3.5-.15.15-.3.3-.15.6.45.8 1.4 1.7 2.2 2.1.25.15.4.05.55-.1.2-.2.35-.4.55-.55.2-.15.35-.15.6-.05.5.2 1.25.55 1.45.65.2.1.35.2.4.35.05.15.05.55-.15 1.05-.2.5-1.1.9-1.5.95-.4.05-.85.1-2.7-.55-2.25-.8-3.7-2.85-3.85-3.05-.15-.2-.9-1.2-.9-2.3 0-.5.1-.85.3-1.1z"/>
+    </g>
 
     <!-- The condominium's mark, rebuilt as live vector so it stays crisp at any
-         size. Replaced automatically by assets/logo-aspen.png when present. -->
+         size. Replaced automatically by assets/logo-aspen-v2.png when present. -->
     <g id="leaf-sprig">
       <path d="M20 39c-.6-6.4-.6-12 .8-18.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       <path d="M20.4 27.2c-3.9-3.6-9-4.1-12.3-1.9 1.9 3.9 6.7 6.4 12.1 4.6z"/>
@@ -967,7 +1014,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
               fill="url(#gTop)">ASPEN</text>
         <path d="M28 66Q150 46 272 66Q150 55 28 66Z" fill="url(#gTop)"/>
       </svg>
-      <img class="logo-img" src="assets/logo-aspen.png" alt="Condomínio Residencial Aspen" hidden>
+      <img class="logo-img" src="assets/logo-aspen-v2.png" alt="Condomínio Residencial Aspen" hidden>
     </a>
     <nav class="topbar__nav" aria-label="Navegação principal">
       <a class="topbar__link" href="#inicio" data-scroll data-nav="inicio">Início</a>
@@ -989,7 +1036,6 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
 
   <p class="ph-badge" id="phBadge">
     <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-image"/></svg>
-    Adicione assets/fachada.jpg
   </p>
 
   <div class="hero__top">
@@ -1015,12 +1061,12 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
         </g>
         <g transform="translate(244,175) scale(.8)" fill="url(#gHero)" color="#C8A96A"><use href="#leaf-sprig"/></g>
       </svg>
-      <img class="logo-img" src="assets/logo-aspen.png" alt="Condomínio Residencial Aspen" hidden>
+      <img class="logo-img" src="assets/logo-aspen-v2.png" alt="Condomínio Residencial Aspen" hidden>
     </h1>
 
     <p class="hero__addr">
       Rua dos Bicudos, nº 14 - Renascença<br>
-      São Luís, Maranhão
+      São Luís - MA
     </p>
 
     <a class="hero__cta" href="#informacoes" data-scroll>
@@ -1050,7 +1096,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
       <g transform="translate(104,4) scale(.8)" fill="currentColor"><use href="#leaf-sprig"/></g>
     </svg>
     <p class="lede">
-      O Condomínio Residencial Aspen está localizado no bairro Renascença, em São Luís,
+      O Condomínio Residencial Aspen está localizado no bairro Renascença, em São Luís - MA,
       oferecendo organização, segurança e praticidade aos seus moradores e visitantes.
     </p>
   </div>
@@ -1068,12 +1114,25 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
 
       <!-- IdentificationCard - the engraved plaque -->
       <article class="card plaque" style="--i:0" aria-labelledby="plaque-name">
-        <p class="plaque__kicker">Condomínio Residencial</p>
-        <p class="plaque__name" id="plaque-name">Aspen</p>
+        <div class="plaque__mark" id="plaque-name">
+          <svg viewBox="0 0 520 210" role="img" aria-label="Condomínio Residencial Aspen" class="logo-vec">
+            <defs><linearGradient id="gPlaque" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F3E5C2"/><stop offset="44%" stop-color="#C8A96A"/><stop offset="100%" stop-color="#9E7F3E"/></linearGradient></defs>
+            <text x="260" y="98" text-anchor="middle" textLength="424" lengthAdjust="spacing"
+                  font-family="Cormorant Garamond, Cormorant, Georgia, serif" font-size="106" font-weight="500"
+                  fill="url(#gPlaque)">ASPEN</text>
+            <path d="M58 136Q260 97 462 136Q260 114 58 136Z" fill="url(#gPlaque)"/>
+            <text x="260" y="168" text-anchor="middle" textLength="402" lengthAdjust="spacing"
+                  font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500"
+                  fill="#CBAC70">CONDOMÍNIO RESIDENCIAL</text>
+            <g fill="url(#gPlaque)">
+              <rect x="54" y="191.2" width="182" height="1.7" rx=".85"/>
+              <rect x="284" y="191.2" width="182" height="1.7" rx=".85"/>
+            </g>
+            <g transform="translate(244,175) scale(.8)" fill="url(#gPlaque)" color="#C8A96A"><use href="#leaf-sprig"/></g>
+          </svg>
+          <img class="logo-img" src="assets/logo-aspen-v2.png" alt="Condomínio Residencial Aspen" hidden>
+        </div>
         <p class="plaque__sub">Renascença · São Luís - MA</p>
-        <svg class="plaque__arc" viewBox="0 0 400 26" aria-hidden="true">
-          <path d="M6 19Q200 1 394 19Q200 8 6 19Z" fill="currentColor"/>
-        </svg>
         <div class="plaque__cnpj">
           <div class="plaque__cnpjbox">
             <p class="plaque__cnpjlabel">CNPJ</p>
@@ -1083,22 +1142,27 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg>
           </button>
         </div>
+        <p class="plaque__hint">Toque para copiar o CNPJ</p>
       </article>
 
       <!-- ContactCard - phone -->
-      <a class="card card--mint c-phone" style="--i:1" href="tel:+5598999714320">
+      <a class="card card--mint card--wide c-phone" style="--i:1" href="tel:+5598999714320">
         <span class="card__icon"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg></span>
         <span class="card__cta"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrowur"/></svg></span>
-        <p class="card__label">Telefone</p>
-        <p class="card__value">(98) <span class="nb">99971-4320</span></p>
+        <span class="card__text">
+          <span class="card__label">Telefone/WhatsApp</span>
+          <span class="card__value">(98) <span class="nb">99971-4320</span></span>
+        </span>
       </a>
 
       <!-- ContactCard - email -->
-      <a class="card card--sand c-mail" style="--i:2" href="mailto:samarone@slz.com.br">
+      <a class="card card--sand card--wide c-mail" style="--i:2" href="mailto:samarone@slz.com.br">
         <span class="card__icon"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg></span>
         <span class="card__cta"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrowur"/></svg></span>
-        <p class="card__label">E-mail</p>
-        <p class="card__value card__value--sm">samarone@<wbr>slz.com.br</p>
+        <span class="card__text">
+          <span class="card__label">E-mail</span>
+          <span class="card__value card__value--email">samarone@slz.com.br</span>
+        </span>
       </a>
 
       <!-- AddressCard -->
@@ -1119,7 +1183,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
             <p class="addr__lines">
               Rua dos Bicudos, nº 14
               <span>Renascença · CEP 65075-090</span>
-              <span>São Luís - MA</span>
+              <span>São Luís/MA</span>
             </p>
           </div>
         </div>
@@ -1145,20 +1209,46 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
         <p class="card__value">Salvar contato</p>
       </button>
 
-      <!-- AdministrationCard -->
+      <!-- AdministrationCard - síndico, subsíndico e conselho fiscal -->
       <article class="card card--sand admin" style="--i:6">
         <p class="card__label" style="margin-top:0;padding-top:0">Administração</p>
         <div class="admin__row">
-          <span class="avatar" aria-hidden="true">SM</span>
+          <span class="avatar avatar-fallback" aria-hidden="true">SM</span>
+          <img class="avatar avatar-photo" src="assets/samarone.jpg" alt="Foto de Samarone José Lima Meireles, síndico" hidden>
           <div>
             <p class="admin__role">Síndico</p>
             <p class="admin__name">Samarone José Lima Meireles</p>
             <p class="admin__oab">OAB/MA 3.412</p>
           </div>
         </div>
-        <p class="admin__note">
-          Atendimento aos moradores pelo telefone e e-mail oficiais do condomínio.
-        </p>
+
+        <div class="admin__board">
+          <div class="council__grp">
+            <p class="council__h">Subsíndico</p>
+            <p class="council__name">José Brandão Pereira</p>
+          </div>
+          <div class="council__grp">
+            <p class="council__h">Conselho Fiscal</p>
+            <ul class="council__list">
+              <li>
+                <span class="council__name">Thiago Vinícius Almeida Barbosa</span>
+                <span class="council__role">Titular</span>
+              </li>
+              <li>
+                <span class="council__name">João José Pessoa Mota</span>
+                <span class="council__role">Titular</span>
+              </li>
+              <li>
+                <span class="council__name">Conceição de Maria Sales Viana</span>
+                <span class="council__role">Titular</span>
+              </li>
+              <li>
+                <span class="council__name">Rosimarie Moraes Salazar</span>
+                <span class="council__role">Suplente</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </article>
 
     </div>
@@ -1195,52 +1285,6 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
   </div>
 </section>
 
-<!-- ══════════════════ USEFUL INFORMATION ══════════════════ -->
-<section class="section section--tight" aria-labelledby="t-uteis">
-  <div class="shell">
-    <div class="rv">
-      <p class="eyebrow">Para moradores</p>
-      <h2 class="h2" id="t-uteis">Informações úteis</h2>
-      <p class="lede" style="max-width:46ch">
-        Esta área receberá os documentos e comunicados oficiais do condomínio.
-      </p>
-    </div>
-
-    <div class="soon stagger">
-      <div class="soon__card soon__card--wide" style="--i:0">
-        <span class="card__icon"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-megaphone"/></svg></span>
-        <p class="soon__title">Comunicados</p>
-        <p class="soon__tag">Disponível em breve</p>
-      </div>
-      <div class="soon__card" style="--i:1">
-        <span class="card__icon"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-book"/></svg></span>
-        <p class="soon__title">Regulamento interno</p>
-        <p class="soon__tag">Em breve</p>
-      </div>
-      <div class="soon__card" style="--i:2">
-        <span class="card__icon"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-scroll"/></svg></span>
-        <p class="soon__title">Convenção do condomínio</p>
-        <p class="soon__tag">Em breve</p>
-      </div>
-      <div class="soon__card" style="--i:3">
-        <span class="card__icon"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg></span>
-        <p class="soon__title">Telefones úteis</p>
-        <p class="soon__tag">Em breve</p>
-      </div>
-      <div class="soon__card" style="--i:4">
-        <span class="card__icon"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-users"/></svg></span>
-        <p class="soon__title">Administração</p>
-        <p class="soon__tag">Em breve</p>
-      </div>
-      <div class="soon__card" style="--i:5">
-        <span class="card__icon"><svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-folder"/></svg></span>
-        <p class="soon__title">Documentos</p>
-        <p class="soon__tag">Em breve</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════════════ FINAL CTA ══════════════════ -->
 <section class="section" id="contato" aria-labelledby="t-contato">
   <div class="shell">
@@ -1252,6 +1296,10 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
         <a class="btn btn--gold" href="tel:+5598999714320">
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>
           Ligar agora
+        </a>
+        <a class="btn btn--ghost" href="https://wa.me/5598999714320" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          WhatsApp
         </a>
         <a class="btn btn--ghost" href="mailto:samarone@slz.com.br">
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg>
@@ -1283,7 +1331,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
         </g>
         <g transform="translate(244,175) scale(.8)" fill="url(#gFoot)" color="#C8A96A"><use href="#leaf-sprig"/></g>
       </svg>
-      <img class="logo-img" src="assets/logo-aspen.png" alt="Condomínio Residencial Aspen" hidden>
+      <img class="logo-img" src="assets/logo-aspen-v2.png" alt="Condomínio Residencial Aspen" hidden>
     </div>
 
     <div class="footer__grid">
@@ -1299,7 +1347,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
         <p class="footer__body">
           Rua dos Bicudos, nº 14<br>
           Renascença<br>
-          São Luís - Maranhão<br>
+          São Luís/MA<br>
           <span class="footer__num">CEP 65075-090</span>
         </p>
       </div>
@@ -1313,7 +1361,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
       <div>
         <p class="footer__h">Administração</p>
         <p class="footer__body">
-          Samarone José Lima Meireles<br>
+          <strong>Samarone José Lima Meireles</strong><br>
           Síndico · OAB/MA 3.412
         </p>
       </div>
@@ -1377,7 +1425,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
       "taxID":"05.356.856/0001-18",
       "vatID":"05.356.856/0001-18",
       "image":"https://condominio-residencial-aspen.vercel.app/assets/fachada.jpg",
-      "logo":"https://condominio-residencial-aspen.vercel.app/assets/logo.png",
+      "logo":"https://condominio-residencial-aspen.vercel.app/assets/logo-aspen.png",
       "address":{
         "@type":"PostalAddress",
         "streetAddress":"Rua dos Bicudos, nº 14",
@@ -1386,7 +1434,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
         "postalCode":"65075-090",
         "addressCountry":"BR"
       },
-      "areaServed":"Renascença, São Luís - MA",
+      "areaServed":"Renascença, São Luís/MA",
       "contactPoint":{
         "@type":"ContactPoint",
         "contactType":"Administração do condomínio",
@@ -1485,7 +1533,7 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
     btn.addEventListener("click", function(){
       var payload = {
         title: DATA.nome,
-        text: DATA.nome + " - " + DATA.rua + ", " + DATA.bairro + ", " + DATA.cidade + " - " + DATA.uf,
+        text: DATA.nome + " - " + DATA.rua + ", " + DATA.bairro + ", " + DATA.cidade + "/" + DATA.uf,
         url: window.location.href
       };
       if (navigator.share){
@@ -1660,9 +1708,17 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
     document.documentElement.style.setProperty("--photo", 'url("' + src + '")');
     document.documentElement.classList.add("has-photo");
   });
-  probe("assets/logo-aspen.png", function(){
+  probe("assets/aspen-fachada-pintura.jpg", function(src){
+    document.documentElement.style.setProperty("--photo-header", 'url("' + src + '")');
+    document.documentElement.classList.add("has-hero-photo");
+  });
+  probe("assets/logo-aspen-v2.png", function(){
     $$(".logo-vec").forEach(function(v){ v.style.display = "none"; });
     $$(".logo-img").forEach(function(i){ i.hidden = false; });
+  });
+  probe("assets/samarone.jpg", function(){
+    $$(".avatar-fallback").forEach(function(v){ v.style.display = "none"; });
+    $$(".avatar-photo").forEach(function(i){ i.hidden = false; });
   });
 
   /* ── Service worker (PWA) ──────────────────────────── */
