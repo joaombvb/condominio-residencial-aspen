@@ -486,7 +486,7 @@ a.card:hover .card__cta{transform:translate(2px,-2px);opacity:1}
   font-size:15px;line-height:1.62;color:var(--forest);font-weight:700;
   margin-top:2px;
 }
-.addr__lines span{display:block;color:var(--muted);font-weight:700;font-size:14px}
+.addr__lines span{display:block;color:inherit;font-weight:inherit;font-size:inherit}
 .addr__btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   min-height:46px;padding:0 20px;
@@ -608,6 +608,28 @@ html.has-photo .shot--photo{background-image:var(--photo);background-size:cover}
   display:flex;align-items:center;gap:8px;
   margin-top:2px;font-size:11.5px;color:var(--muted);letter-spacing:.05em;
 }
+
+/* - Video shots -------------------------------------- */
+.shot--video{background:linear-gradient(180deg,#1D4A3D 0%,#123027 100%)}
+.shot__media{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;background:transparent;
+}
+.shot__play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:56px;height:56px;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(9,25,20,.46);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.55);
+  backdrop-filter:blur(2px);
+  transition:background 200ms var(--ease),transform 200ms var(--ease);
+}
+.shot__play svg{margin-left:3px}
+.shot--video:hover .shot__play{background:rgba(9,25,20,.62);transform:translate(-50%,-50%) scale(1.06)}
+.shot--video.is-playing .shot__play,
+.shot--video.is-playing .shot__cap{opacity:0;pointer-events:none}
+.shot--video[hidden]{display:none}
 
 /* ═══════════════════════════════════════════════════════════
    9. USEFUL INFO
@@ -986,6 +1008,9 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
     <g id="i-swipe" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12h14M13 6l6 6-6 6"/>
     </g>
+    <g id="i-play" fill="currentColor" stroke="none">
+      <path d="M8 5.5v13l11-6.5z"/>
+    </g>
     <g id="i-whatsapp" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
       <path d="M3 21l1.4-4.8A8.5 8.5 0 1 1 8.4 19.6z"/>
       <path d="M8.7 9.3c.2-.4.4-.4.7-.4.2 0 .5.05.65.4.2.45.55 1.3.6 1.4.1.2.1.4 0 .6-.1.2-.15.3-.3.5-.15.15-.3.3-.15.6.45.8 1.4 1.7 2.2 2.1.25.15.4.05.55-.1.2-.2.35-.4.55-.55.2-.15.35-.15.6-.05.5.2 1.25.55 1.45.65.2.1.35.2.4.35.05.15.05.55-.15 1.05-.2.5-1.1.9-1.5.95-.4.05-.85.1-2.7-.55-2.25-.8-3.7-2.85-3.85-3.05-.15-.2-.9-1.2-.9-2.3 0-.5.1-.85.3-1.1z"/>
@@ -1063,11 +1088,6 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
       </svg>
       <img class="logo-img" src="assets/logo-aspen-v2.png" alt="Condomínio Residencial Aspen" hidden>
     </h1>
-
-    <p class="hero__addr">
-      Rua dos Bicudos, nº 14 - Renascença<br>
-      São Luís - MA
-    </p>
 
     <a class="hero__cta" href="#informacoes" data-scroll>
       Ver informações
@@ -1267,15 +1287,45 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
       <button class="shot shot--photo shot--a" style="--i:0" data-zoom aria-label="Ampliar: fachada principal na Rua dos Bicudos">
         <span class="shot__cap">Fachada principal - Rua dos Bicudos, 14</span>
       </button>
-      <button class="shot shot--photo shot--b" style="--i:1" data-zoom aria-label="Ampliar: entrada e portaria">
-        <span class="shot__cap">Entrada e portaria</span>
+      <button class="shot shot--video" style="--i:1" data-video-shot
+              aria-label="Reproduzir vídeo 1 do Condomínio Aspen">
+        <video class="shot__media" src="assets/Video-1.mp4"
+               muted playsinline preload="metadata" tabindex="-1"></video>
+        <span class="shot__play" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg>
+        </span>
+        <span class="shot__cap">Vídeo do condomínio · 1</span>
       </button>
-      <div class="shot shot--empty" style="--i:2">
-        <div class="shot__empty-in">
-          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-image"/></svg>
-          <p>Espaço reservado para novas fotografias do condomínio.</p>
-        </div>
-      </div>
+
+      <button class="shot shot--video" style="--i:2" data-video-shot
+              aria-label="Reproduzir vídeo 2 do Condomínio Aspen">
+        <video class="shot__media" src="assets/Video-2.mp4"
+               muted playsinline preload="metadata" tabindex="-1"></video>
+        <span class="shot__play" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg>
+        </span>
+        <span class="shot__cap">Vídeo do condomínio · 2</span>
+      </button>
+
+      <button class="shot shot--video" style="--i:3" data-video-shot
+              aria-label="Reproduzir vídeo 3 do Condomínio Aspen">
+        <video class="shot__media" src="assets/Video-3.mp4"
+               muted playsinline preload="metadata" tabindex="-1"></video>
+        <span class="shot__play" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg>
+        </span>
+        <span class="shot__cap">Vídeo do condomínio · 3</span>
+      </button>
+
+      <button class="shot shot--video" style="--i:4" data-video-shot
+              aria-label="Reproduzir vídeo 4 do Condomínio Aspen">
+        <video class="shot__media" src="assets/Video-4.mp4"
+               muted playsinline preload="metadata" tabindex="-1"></video>
+        <span class="shot__play" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg>
+        </span>
+        <span class="shot__cap">Vídeo do condomínio · 4</span>
+      </button>
     </div>
 
     <p class="rail__hint">
@@ -1719,6 +1769,32 @@ html.has-photo .lightbox__img{background-image:var(--photo)}
   probe("assets/samarone.jpg", function(){
     $$(".avatar-fallback").forEach(function(v){ v.style.display = "none"; });
     $$(".avatar-photo").forEach(function(i){ i.hidden = false; });
+  });
+
+  /* ── Gallery videos ─────────────────────────────────── */
+  $$("[data-video-shot]").forEach(function(shot){
+    var video = shot.querySelector(".shot__media");
+
+    shot.addEventListener("click", function(e){
+      e.preventDefault();
+      if (video.paused){
+        video.controls = true;
+        video.play();
+        shot.classList.add("is-playing");
+      } else {
+        video.pause();
+      }
+    });
+    video.addEventListener("pause", function(){
+      shot.classList.remove("is-playing");
+      video.controls = false;
+      video.currentTime = 0;
+    });
+    video.addEventListener("ended", function(){
+      shot.classList.remove("is-playing");
+      video.controls = false;
+      video.currentTime = 0;
+    });
   });
 
   /* ── Service worker (PWA) ──────────────────────────── */
