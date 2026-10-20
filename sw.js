@@ -1,10 +1,11 @@
 /* Condomínio Edílico Aspen — service worker
    Cache-first for the shell, network-first for navigations. */
-const CACHE = 'aspen-v2';
+const CACHE = 'aspen-v3';
 const SHELL = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
+  '/assets/pix-aspen.png',
   '/assets/fachada.jpg',
   '/assets/logo-aspen.png'
 ];

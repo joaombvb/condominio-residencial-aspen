@@ -77,6 +77,17 @@ pelo compartilhamento). Altere os dois.
 
 ## 5. Estrutura do código
 
+A seção `#financeiro`, após as informações gerais, contém os dados da Caixa
+e a chave Pix CNPJ `05356856000118`. O QR Code estático fica em
+`assets/pix-aspen.png`; seu conteúdo também está em `assets/pix-aspen.txt`
+para consulta e manutenção.
+Ele não define valor nem identificador de cobrança (txid `***`).
+Se a chave mudar, gere novamente o QR Code e atualize esses dois arquivos,
+o CNPJ visível e o objeto `DATA`. A agência e a conta exibidas não são
+codificadas no Pix: o banco resolve o destinatário pela chave cadastrada.
+O vínculo da chave com a conta deve ser conferido no aplicativo bancário.
+Referência: [Manual BR Code do Banco Central](https://aprendervalor.bcb.gov.br/content/estabilidadefinanceira/spb_docs/ManualBRCode.pdf).
+
 O `index.html` está dividido por comentários que correspondem aos
 componentes pedidos, para facilitar uma futura porta para Next.js:
 
